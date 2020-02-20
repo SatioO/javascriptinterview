@@ -75,3 +75,13 @@ const mul = x => x * x
 const div = x => x / 2
 
 console.log(mul(div(2)))
+
+// Pass by value / Pass by reference
+function getData(a) {
+  a = { name: "Ronak"}
+  return null
+}
+const b = { name: "Vaibhav"}
+getData(b)
+
+console.log(b)
