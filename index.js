@@ -1,3 +1,4 @@
+// Prototype Chaining
 function Animal() {
   this.name = "Nothing"
 }
@@ -17,7 +18,47 @@ Cat.prototype.getVoice = function() {
   return this.voice
 }
 
+class Human {
+  constructor() {}
+}
+
+
 console.log(Cat.prototype)
 
 const cat = new Cat("Meow")
 console.log(cat.name)
+
+const human = new Human()
+console.log(human)
+
+// Functional Chaining
+const obj = {
+  values: [1,2,3,4,5],
+  filter: function(x) {
+    this.values = x.filter(item => item %2 ===0)
+    return this
+  },
+  add: function() {
+    return this
+  }
+}
+
+// Currying
+function curry(fn) {
+  return function curried(...args) {
+    if(args.length >= fn.length) {
+      return fn(...args);
+    } else {
+      return (...args1) => {
+        return curried(...args, ...args1)
+      }
+    }
+  }
+}
+
+const add = (a, b) => a + b
+
+const curried = curry(add)
+console.log(curried(10)(20))
+
+// Pure Functions
