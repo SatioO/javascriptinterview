@@ -61,4 +61,17 @@ const add = (a, b) => a + b
 const curried = curry(add)
 console.log(curried(10)(20))
 
+
 // Pure Functions
+let a = 10
+
+function impureAdd(b) {
+  return a + b
+}
+
+console.log(impureAdd(10))
+
+const mul = x => x * x
+const div = x => x / 2
+
+console.log(mul(div(2)))
